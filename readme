@@ -1,0 +1,1 @@
+Can successfully post on dynamoDB through postman. index.js is the lamdba function used for my db

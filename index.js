@@ -77,7 +77,7 @@ async function scanDynamoRecords(scanParams, itemArray) {
   try {
     const dynamoData = await dynamodb.scan(scanParams).promise();
     itemArray = itemArray.concat(dynamoData.Items);
-    if (dynamoData.LastEvaluateKey) {
+    if (dynamoData.LastEvaluatedKey) {
       scanParams.ExclusiveStartKey = dynamoData.LastEvaluateKey;
       return await scanDynamoRecords(scanParams, itemArray);
     }
