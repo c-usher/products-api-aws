@@ -140,7 +140,7 @@ async function modifyProduct(productId, updateKey, updateValue) {
     );
 }
 
-async function deleteProduct(product) {
+async function deleteProduct(productId) {
   const params = {
     TableName: dynamodbTableName,
     Key: {
@@ -161,7 +161,10 @@ async function deleteProduct(product) {
         return buildResponse(200, body);
       },
       (error) => {
-        console.error(error);
+        console.error(
+          "Do your custom error handling here. I am just gonna log it: ",
+          error
+        );
       }
     );
 }
